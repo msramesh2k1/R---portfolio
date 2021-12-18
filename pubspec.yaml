@@ -27,12 +27,14 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  animated_text_kit: ^4.2.1
   coast: ^2.0.2
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
   google_fonts: ^2.1.0
   lottie: ^1.2.1
+  url_launcher: ^6.0.17
 
 dev_dependencies:
   flutter_lints: ^1.0.0
@@ -62,6 +64,10 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
+  fonts:
+    - family: HolidayFree
+      fonts:
+        - asset: assets/fonts/HolidayFree.otf
   # fonts:
   #   - family: Schyler
   #     fonts:
