@@ -238,7 +238,7 @@ class _ThirdScreenState extends State<ThirdScreen> {
                             ),
                       const Spacer(),
                       const Text(
-                        "Developed in 💙 with Flutter",
+                        "Developed in Love with Flutter",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontFamily: 'HolidayFree',
@@ -264,19 +264,15 @@ class _ThirdScreenState extends State<ThirdScreen> {
                       : MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Positioned(
-                      top: 60,
-                      left: MediaQuery.of(context).size.width < 600 ? 20 : 40,
-                      child: const Text(
-                        "Get in Touch",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontFamily: 'HolidayFree',
-                          fontSize: 20,
-                          color: Colors.white,
-                          letterSpacing: 2,
-                          fontWeight: FontWeight.w100,
-                        ),
+                    const Text(
+                      "Get in Touch",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontFamily: 'HolidayFree',
+                        fontSize: 20,
+                        color: Colors.white,
+                        letterSpacing: 2,
+                        fontWeight: FontWeight.w100,
                       ),
                     ),
                     const SizedBox(

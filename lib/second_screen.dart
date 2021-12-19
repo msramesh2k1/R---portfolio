@@ -124,7 +124,7 @@ class _SecondScreenState extends State<SecondScreen> {
                         style: TextStyle(
                           fontFamily: 'HolidayFree',
                           height:
-                              MediaQuery.of(context).size.width < 600 ? 3 : 1,
+                              MediaQuery.of(context).size.width < 600 ? 3 : 2,
                           fontSize: 22,
                           color: Colors.white,
                           wordSpacing: 10,
