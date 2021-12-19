@@ -4,7 +4,6 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
-import 'package:r_portfolio/custom_loader.dart';
 import 'package:r_portfolio/third_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -58,17 +57,21 @@ class _SecondScreenState extends State<SecondScreen> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Hero(
-                    tag: "logo",
-                    child: Image.asset(
-                      "assets/images/logo5.png",
-                      height: 100,
+                  Padding(
+                    padding: const EdgeInsets.only(top: 25.0),
+                    child: Hero(
+                      tag: "logo",
+                      child: Image.asset(
+                        "assets/images/logo5.png",
+                        height: 100,
+                      ),
                     ),
                   ),
                   Padding(
-                      padding: const EdgeInsets.only(right: 20.0),
+                      padding: const EdgeInsets.only(right: 5.0),
                       child: GestureDetector(
                         onTap: () {
                           launch(
@@ -113,13 +116,16 @@ class _SecondScreenState extends State<SecondScreen> {
                   : const SizedBox(),
               showtext
                   ? Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 200.0),
+                      padding: EdgeInsets.symmetric(
+                          horizontal: MediaQuery.of(context).size.width / 8),
                       child: Text(
                         details,
                         textAlign: TextAlign.center,
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontFamily: 'HolidayFree',
-                          fontSize: 20,
+                          height:
+                              MediaQuery.of(context).size.width < 600 ? 3 : 1,
+                          fontSize: 22,
                           color: Colors.white,
                           wordSpacing: 10,
                           fontWeight: FontWeight.normal,
