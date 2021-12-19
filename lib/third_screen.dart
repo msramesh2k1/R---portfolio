@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
@@ -120,47 +119,75 @@ class _ThirdScreenState extends State<ThirdScreen> {
                           fontWeight: FontWeight.w100,
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          left: 50.0,
-                          right: 50,
-                        ),
-                        child: Container(
-                          height: 280,
-                          color: Colors.black,
-                          width: MediaQuery.of(context).size.width,
-                          child: GridView.builder(
-                            itemCount: projecttitles.length,
-                            scrollDirection: Axis.vertical,
-                            gridDelegate:
-                                const SliverGridDelegateWithFixedCrossAxisCount(
-                                    crossAxisCount: 3),
-                            itemBuilder: (BuildContext context, int index) {
-                              return Padding(
-                                padding: const EdgeInsets.all(70.0),
-                                child: GestureDetector(
-                                  onTap: () {
-                                    launch(url[index]);
-                                  },
-                                  child: Container(
-                                    height: 20,
-                                    width: 20,
-                                    decoration: BoxDecoration(
-                                        color: Colors.black45,
-                                        image: DecorationImage(
-                                            image: NetworkImage(
-                                              projectimage[index],
-                                            ),
-                                            fit: BoxFit.cover),
-                                        borderRadius: BorderRadius.circular(20),
-                                        border: Border.all(
-                                            color: Colors.transparent)),
+                      MediaQuery.of(context).size.width < 600
+                          ? const SizedBox(
+                              height: 100,
+                            )
+                          : const SizedBox(),
+                      Stack(
+                        children: [
+                          Container(
+                            height: MediaQuery.of(context).size.width < 600
+                                ? 400
+                                : 310,
+                            color: MediaQuery.of(context).size.width < 600
+                                ? Colors.grey[900]
+                                : Colors.black,
+                            width: MediaQuery.of(context).size.width,
+                            child: GridView.builder(
+                              itemCount: projecttitles.length,
+                              scrollDirection:
+                                  MediaQuery.of(context).size.width < 600
+                                      ? Axis.horizontal
+                                      : Axis.vertical,
+                              gridDelegate:
+                                  SliverGridDelegateWithFixedCrossAxisCount(
+                                      crossAxisCount:
+                                          MediaQuery.of(context).size.width <
+                                                  600
+                                              ? 1
+                                              : 3),
+                              itemBuilder: (BuildContext context, int index) {
+                                return Padding(
+                                  padding: const EdgeInsets.all(70.0),
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      launch(url[index]);
+                                    },
+                                    child: Container(
+                                      height: 20,
+                                      width: 20,
+                                      decoration: BoxDecoration(
+                                          color: Colors.black45,
+                                          image: DecorationImage(
+                                              image: NetworkImage(
+                                                projectimage[index],
+                                              ),
+                                              fit: BoxFit.cover),
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                          border: Border.all(
+                                              color: Colors.transparent)),
+                                    ),
                                   ),
-                                ),
-                              );
-                            },
+                                );
+                              },
+                            ),
                           ),
-                        ),
+                          MediaQuery.of(context).size.width < 600
+                              ? Positioned(
+                                  bottom: 20,
+                                  right: 40,
+                                  child: RotationTransition(
+                                    turns:
+                                        const AlwaysStoppedAnimation(360 / 360),
+                                    child: Lottie.asset(
+                                        'assets/images/arrow.json',
+                                        height: 50),
+                                  ),
+                                )
+                              : const SizedBox()
+                        ],
                       )
                     ],
                   ),
@@ -310,10 +337,8 @@ class _ThirdScreenState extends State<ThirdScreen> {
                       height: 50,
                     ),
                     GestureDetector(
-                      onTap:()
-                      async => await launch(
-         "https://wa.me/${917010862331}?text=Hello")
-                      ,
+                      onTap: () async => await launch(
+                          "https://wa.me/${917010862331}?text=Hello"),
                       child: CircleAvatar(
                           backgroundColor: Colors.red[900],
                           radius: 30,
