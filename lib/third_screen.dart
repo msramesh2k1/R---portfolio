@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
+import 'package:r_portfolio/main_screen.dart';
 import 'package:r_portfolio/second_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -372,7 +373,7 @@ class _ThirdScreenState extends State<ThirdScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const SecondScreen()));
+                              builder: (context) => const MainScreen()));
                     },
                     child: RotationTransition(
                       turns: const AlwaysStoppedAnimation(180 / 360),
