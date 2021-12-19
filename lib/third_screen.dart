@@ -1,4 +1,3 @@
-import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -29,6 +28,10 @@ class _ThirdScreenState extends State<ThirdScreen> {
     "https://github.com/msramesh2k1?tab=repositories",
     "https://github.com/msramesh2k1/Calculator---Flutter"
   ];
+  TextEditingController namecontroller = TextEditingController();
+  TextEditingController emailcontroller = TextEditingController();
+  TextEditingController msgcontroller = TextEditingController();
+
   PageController scrollController = PageController();
   @override
   Widget build(BuildContext context) {
@@ -187,30 +190,30 @@ class _ThirdScreenState extends State<ThirdScreen> {
                 height: MediaQuery.of(context).size.height,
                 child: Center(
                   child: Column(
-                    children: const [
-                      SizedBox(
+                    children: [
+                      const SizedBox(
                         height: 60,
                       ),
-                      Spacer(),
+                      const Spacer(),
                       Text(
-                        "Contact : msramesh2k1@gmail.com for any kind of Queries",
+                        "Contact",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontFamily: 'HolidayFree',
-                          fontSize: 20,
-                          color: Colors.white,
-                          letterSpacing: 2,
+                          fontSize: 200,
+                          color: Colors.grey.shade600.withOpacity(0.1),
+                          letterSpacing: 5,
                           fontWeight: FontWeight.w100,
                         ),
                       ),
-                      Spacer(),
-                      Text(
+                      const Spacer(),
+                      const Text(
                         "Developed in 💙 with Flutter",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontFamily: 'HolidayFree',
                           fontSize: 20,
-                          color: Colors.white,
+                          color: Colors.white30,
                           letterSpacing: 2,
                           fontWeight: FontWeight.w100,
                         ),
@@ -219,6 +222,108 @@ class _ThirdScreenState extends State<ThirdScreen> {
                   ),
                 ),
                 color: Colors.black,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 200.0, top: 100),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    const Positioned(
+                      top: 60,
+                      left: 40,
+                      child: Text(
+                        "Get in Touch",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontFamily: 'HolidayFree',
+                          fontSize: 20,
+                          color: Colors.white,
+                          letterSpacing: 2,
+                          fontWeight: FontWeight.w100,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 50,
+                    ),
+                    Container(
+                      width: 300,
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Colors.white12),
+                          borderRadius: BorderRadius.circular(8),
+                          color: Colors.black),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20.0),
+                        child: TextFormField(
+                          style: const TextStyle(color: Colors.white),
+                          cursorColor: Colors.white,
+                          controller: emailcontroller,
+                          keyboardType: TextInputType.emailAddress,
+                          decoration: const InputDecoration(
+                              labelText: 'Email',
+                              labelStyle: TextStyle(
+                                  fontFamily: 'lato',
+                                  fontWeight: FontWeight.normal,
+                                  color: Colors.white),
+                              enabledBorder: OutlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: Colors.transparent)),
+                              focusedBorder: OutlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: Colors.transparent))),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Container(
+                      width: 300,
+                      decoration: BoxDecoration(
+                          border: Border.all(color: Colors.white12),
+                          borderRadius: BorderRadius.circular(8),
+                          color: Colors.black),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20.0),
+                        child: TextFormField(
+                          style: const TextStyle(color: Colors.white),
+                          cursorColor: Colors.white,
+                          controller: msgcontroller,
+                          keyboardType: TextInputType.multiline,
+                          decoration: const InputDecoration(
+                              labelText: 'Message',
+                              labelStyle: TextStyle(
+                                  fontFamily: 'lato',
+                                  fontWeight: FontWeight.normal,
+                                  color: Colors.white),
+                              enabledBorder: OutlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: Colors.transparent)),
+                              focusedBorder: OutlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: Colors.transparent))),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 50,
+                    ),
+                    GestureDetector(
+                      onTap:()
+                      async => await launch(
+         "https://wa.me/${917010862331}?text=Hello")
+                      ,
+                      child: CircleAvatar(
+                          backgroundColor: Colors.red[900],
+                          radius: 30,
+                          child: const Icon(
+                            Icons.arrow_forward_ios,
+                            size: 30,
+                          )),
+                    )
+                  ],
+                ),
               ),
               Positioned(
                 bottom: 20,

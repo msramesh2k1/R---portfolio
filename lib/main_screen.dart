@@ -1,8 +1,6 @@
-import 'package:coast/coast.dart';
+
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
-import 'package:r_portfolio/custom_loader.dart';
 import 'package:r_portfolio/second_screen.dart';
 
 class MainScreen extends StatefulWidget {
