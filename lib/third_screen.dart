@@ -251,15 +251,20 @@ class _ThirdScreenState extends State<ThirdScreen> {
                 color: Colors.black,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 200.0, top: 100),
+                padding: EdgeInsets.only(
+                  left: MediaQuery.of(context).size.width < 600 ? 0 : 200,
+                  top: MediaQuery.of(context).size.width < 600 ? 0 : 100,
+                ),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MediaQuery.of(context).size.width < 600
+                      ? MainAxisAlignment.center
+                      : MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const Positioned(
+                    Positioned(
                       top: 60,
-                      left: 40,
-                      child: Text(
+                      left: MediaQuery.of(context).size.width < 600 ? 20 : 40,
+                      child: const Text(
                         "Get in Touch",
                         textAlign: TextAlign.center,
                         style: TextStyle(
@@ -337,11 +342,18 @@ class _ThirdScreenState extends State<ThirdScreen> {
                       height: 50,
                     ),
                     GestureDetector(
-                      onTap: () async => await launch(
-                          "https://wa.me/${917010862331}?text=Hello"),
+                      onTap: () async {
+                        String _email = emailcontroller.text.toString();
+                        String _msg = msgcontroller.text.toString();
+                        String _mail = "From : ";
+                        String _message = " \nMessage : ";
+                        await launch(
+                            "https://wa.me/${917010862331}?text=$_mail$_email$_message$_msg");
+                      },
                       child: CircleAvatar(
                           backgroundColor: Colors.red[900],
-                          radius: 30,
+                          radius:
+                              MediaQuery.of(context).size.width < 600 ? 30 : 30,
                           child: const Icon(
                             Icons.arrow_forward_ios,
                             size: 30,
