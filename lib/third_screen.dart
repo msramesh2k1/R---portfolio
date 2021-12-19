@@ -222,17 +222,19 @@ class _ThirdScreenState extends State<ThirdScreen> {
                         height: 60,
                       ),
                       const Spacer(),
-                      Text(
-                        "Contact",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontFamily: 'HolidayFree',
-                          fontSize: 200,
-                          color: Colors.grey.shade600.withOpacity(0.1),
-                          letterSpacing: 5,
-                          fontWeight: FontWeight.w100,
-                        ),
-                      ),
+                      MediaQuery.of(context).size.width < 600
+                          ? const SizedBox()
+                          : Text(
+                              "Contact",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontFamily: 'HolidayFree',
+                                fontSize: 200,
+                                color: Colors.grey.shade600.withOpacity(0.1),
+                                letterSpacing: 5,
+                                fontWeight: FontWeight.w100,
+                              ),
+                            ),
                       const Spacer(),
                       const Text(
                         "Developed in 💙 with Flutter",
@@ -364,7 +366,7 @@ class _ThirdScreenState extends State<ThirdScreen> {
               ),
               Positioned(
                 bottom: 20,
-                right: 40,
+                right: 20,
                 child: GestureDetector(
                     onTap: () {
                       Navigator.push(
@@ -373,9 +375,9 @@ class _ThirdScreenState extends State<ThirdScreen> {
                               builder: (context) => const SecondScreen()));
                     },
                     child: RotationTransition(
-                      turns: const AlwaysStoppedAnimation(360 / 360),
+                      turns: const AlwaysStoppedAnimation(180 / 360),
                       child:
-                          Lottie.asset('assets/images/home.json', height: 50),
+                          Lottie.asset('assets/images/mouse.json', height: 50),
                     )),
               )
             ],
