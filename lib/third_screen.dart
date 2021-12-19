@@ -108,7 +108,7 @@ class _ThirdScreenState extends State<ThirdScreen> {
                         ],
                       ),
                       const SizedBox(
-                        height: 60,
+                        height: 50,
                       ),
                       const Text(
                         "Projects",
@@ -122,7 +122,7 @@ class _ThirdScreenState extends State<ThirdScreen> {
                       ),
                       MediaQuery.of(context).size.width < 600
                           ? const SizedBox(
-                              height: 100,
+                              height: 40,
                             )
                           : const SizedBox(),
                       Stack(
@@ -216,6 +216,7 @@ class _ThirdScreenState extends State<ThirdScreen> {
             children: [
               Container(
                 height: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width,
                 child: Center(
                   child: Column(
                     children: [
@@ -238,11 +239,11 @@ class _ThirdScreenState extends State<ThirdScreen> {
                             ),
                       const Spacer(),
                       const Text(
-                        "Developed in Love with Flutter",
+                        "Developed in 💙 with Flutter",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontFamily: 'HolidayFree',
-                          fontSize: 20,
+                          fontSize: 13,
                           color: Colors.white30,
                           letterSpacing: 2,
                           fontWeight: FontWeight.w100,
@@ -253,15 +254,10 @@ class _ThirdScreenState extends State<ThirdScreen> {
                 ),
                 color: Colors.black,
               ),
-              Padding(
-                padding: EdgeInsets.only(
-                  left: MediaQuery.of(context).size.width < 600 ? 0 : 200,
-                  top: MediaQuery.of(context).size.width < 600 ? 0 : 100,
-                ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width,
                 child: Column(
-                  mainAxisAlignment: MediaQuery.of(context).size.width < 600
-                      ? MainAxisAlignment.center
-                      : MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     const Text(
